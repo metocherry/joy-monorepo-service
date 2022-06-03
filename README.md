@@ -33,3 +33,31 @@ yarn add trubo --dev
   "baseBranch": "origin/main"
 }
 ```
+
+create a pipeline to define your monorepo's task dependency graph.
+
+```json
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}
+```
