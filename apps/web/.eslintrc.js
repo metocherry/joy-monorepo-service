@@ -1,4 +1,8 @@
 module.exports = {
   root: true,
-  extends: ["custom"],
+  extends: [
+    'custom',
+    'custom/react',
+    'custom/typescript',
+  ],
 };
