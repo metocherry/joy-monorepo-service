@@ -16,3 +16,20 @@ yarn
 ```
 
 and then, update .gitignore
+
+### Add turbo as a development dependency
+
+The turbo package is a little shell that will install the proper turbo-<os>-<arch> package for you operating system and architecture.
+
+```shell
+yarn add trubo --dev
+```
+
+### Update turbo.json
+
+```json
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main"
+}
+```
