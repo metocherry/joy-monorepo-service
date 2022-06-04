@@ -61,3 +61,17 @@ create a pipeline to define your monorepo's task dependency graph.
   }
 }
 ```
+
+## Cetificate
+
+```shell
+brew install mkcert
+mkcert -install
+mkcert [domain] # ex. mkcert local.domain.com
+```
+
+and then, add domin in `/etc/hosts`
+
+```txt
+127.0.0.1   [local.domain.com]
+```
