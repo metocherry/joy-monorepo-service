@@ -57,6 +57,7 @@
   "repository": "metocherry/joy-monorep-service",
   "author": "metocherry <metocherry@gmail.com>",
   "auto": {
+    "noVersionPrefix": false,
     "plugins": [
       [
         "npm",
