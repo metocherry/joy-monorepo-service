@@ -1,3 +1,19 @@
+# 0.1.0 (Wed Jun 08 2022)
+
+#### 🚀 Enhancement
+
+- remove: delete 45 size button of button [#5](https://github.com/metocherry/joy-monorepo-service/pull/5) ([@metocherry](https://github.com/metocherry))
+
+#### ⚠️ Pushed to `main`
+
+- config: update auto release option ([@metocherry](https://github.com/metocherry))
+
+#### Authors: 1
+
+- Jinseok Choi ([@metocherry](https://github.com/metocherry))
+
+---
+
 # 0.0.9 (Wed Jun 08 2022)
 
 #### 🐛 Bug Fix
