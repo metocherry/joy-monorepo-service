@@ -58,7 +58,12 @@
   "author": "metocherry <metocherry@gmail.com>",
   "auto": {
     "plugins": [
-      "npm",
+      [
+        "npm",
+        {
+          "noVersionPrefix": true
+        }
+      ],
       "released"
     ],
     "labels": [
