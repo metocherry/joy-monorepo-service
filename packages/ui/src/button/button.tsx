@@ -4,14 +4,19 @@ import { css } from '@emotion/react';
 export interface ButtoonPorps {
   children: ReactNode;
   size: 30 | 40 | 50;
+  color?: string,
 }
 
 export function Button({
   children,
   size,
+  color = '#000',
 }: ButtoonPorps) {
   return (
-    <button type="button" css={css`height: ${size}px;`}>
+    <button
+      type="button"
+      css={css`height: ${size}px; color: ${color};`}
+    >
       {children}
     </button>
   );
