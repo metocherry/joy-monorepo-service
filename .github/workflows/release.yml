@@ -15,7 +15,6 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
-          node-version: 16
           fetch-depth: 0
           token: ${{ secrets.BP_DEPLOYER_GITHUB_TOKEN }}
 
@@ -41,3 +40,8 @@ jobs:
         env:
           CURRENT: ${{ steps.previous_tag.outputs.tag }}
           NEXT: ${{ steps.semvers.outputs.minor }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 116
