@@ -72,7 +72,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auto-it/npm@npm:10.37.1":
+"@auto-it/npm@npm:10.37.1, @auto-it/npm@npm:^10.37.1":
   version: 10.37.1
   resolution: "@auto-it/npm@npm:10.37.1"
   dependencies:
@@ -104,7 +104,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auto-it/released@npm:10.37.1":
+"@auto-it/released@npm:10.37.1, @auto-it/released@npm:^10.37.1":
   version: 10.37.1
   resolution: "@auto-it/released@npm:10.37.1"
   dependencies:
@@ -12227,6 +12227,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "joy-monorep-service@workspace:."
   dependencies:
+    "@auto-it/npm": ^10.37.1
+    "@auto-it/released": ^10.37.1
     "@babel/core": ^7.18.2
     "@changesets/changelog-github": ^0.4.4
     "@changesets/cli": ^2.22.0

@@ -21,6 +21,8 @@
     "shipit": "auto shipit"
   },
   "dependencies": {
+    "@auto-it/npm": "^10.37.1",
+    "@auto-it/released": "^10.37.1",
     "@changesets/changelog-github": "^0.4.4",
     "@changesets/cli": "^2.22.0",
     "@types/prettier": "^2.6.3",
