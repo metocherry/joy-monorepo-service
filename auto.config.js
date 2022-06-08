@@ -1,6 +1,3 @@
-const { AutoRc } = require('auto');
-const { INpmConfig } = require('@auto-it/npm');
-
 const npmOptions = {
   subPackageChangelogs: true,
   monorepoChangelog: true

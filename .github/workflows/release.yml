@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    paths:
-      - "packages/ui/**"
+    # paths:
+    #   - "packages/ui/**"
     branches:
       - main
 
