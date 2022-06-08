@@ -6,7 +6,7 @@ const npmOptions = {
   monorepoChangelog: true
 };
 
-export default function rc() {
+module.exports = function rc() {
   return {
     noVersionPrefix: true,
     noDefaultLabels: true,
