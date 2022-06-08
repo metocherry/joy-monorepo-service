@@ -1,5 +1,5 @@
-const { AutoRc } = requrie('auto');
-const { INpmConfig } = requrie('@auto-it/npm');
+const { AutoRc } = require('auto');
+const { INpmConfig } = require('@auto-it/npm');
 
 const npmOptions = {
   subPackageChangelogs: true,
@@ -19,7 +19,7 @@ module.exports = function rc() {
         name: 'semver/major',
         changelogTitle: '💥 Breaking Change',
         description: 'Increment the major version when merged',
-        releaseType: SEMVER.major,
+        releaseType: 'major',
         color: '#C5000B',
         overwrite: true
       },
@@ -27,7 +27,7 @@ module.exports = function rc() {
         name: 'semver/minor',
         changelogTitle: '🚀 Enhancement',
         description: 'Increment the minor version when merged',
-        releaseType: SEMVER.minor,
+        releaseType: 'minor',
         color: '#F1A60E',
         overwrite: true
       },
@@ -35,7 +35,7 @@ module.exports = function rc() {
         name: 'semver/patch',
         changelogTitle: '🐛 Bug Fix',
         description: 'Increment the patch version when merged',
-        releaseType: SEMVER.patch,
+        releaseType: 'patch',
         color: '#870048',
         overwrite: true
       }
