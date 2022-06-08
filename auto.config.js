@@ -1,23 +1,12 @@
 import { AutoRc } from 'auto';
 import { INpmConfig } from '@auto-it/npm';
 
-enum SEMVER {
-  major = 'major',
-  premajor = 'premajor',
-  minor = 'minor',
-  preminor = 'preminor',
-  patch = 'patch',
-  prepatch = 'prepatch',
-  noVersion = ''
-}
-
-const npmOptions: INpmConfig = {
+const npmOptions = {
   subPackageChangelogs: true,
   monorepoChangelog: true
 };
 
-/** Auto configuration */
-export default function rc(): AutoRc {
+export default function rc() {
   return {
     noVersionPrefix: true,
     noDefaultLabels: true,
