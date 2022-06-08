@@ -8,6 +8,6 @@ export default {
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = () => <Button>샘플</Button>;
+const Template: ComponentStory<typeof Button> = () => <Button size={40}>샘플</Button>;
 
 export const Default = Template.bind({});
