@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.JOY_GITHUB_TOKEN }}
 
       - name: Get Previous tag
-        id: previoustag
+        id: previous_tag
         uses: WyriHaximus/github-action-get-previous-tag@v1
         with:
           fallback: 0.0.0
