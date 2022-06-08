@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
-        token: ${{ secrets.GITHUB_TOKENN }}
         with:
           node-version: 16
           fetch-depth: 0
+          token: ${{ secrets.BP_DEPLOYER_GITHUB_TOKEN }}
 
       - name: Get Previous tag
         id: previoustag
