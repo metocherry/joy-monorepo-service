@@ -75,3 +75,5 @@ and then, add domin in `/etc/hosts`
 ```txt
 127.0.0.1   [local.domain.com]
 ```
+
+## Automated Release
