@@ -11,10 +11,7 @@ export function Button({
   size,
 }: ButtoonPorps) {
   return (
-    <button
-      type="button"
-      css={css`height: ${size}px;`}
-    >
+    <button type="button" css={css`height: ${size}px;`}>
       {children}
     </button>
   );
