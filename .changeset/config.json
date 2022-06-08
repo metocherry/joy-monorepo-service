@@ -9,7 +9,7 @@
   "commit": false,
   "fixed": [
     [
-      "packages/@metocherry-*"
+      "@metocherry/*"
     ]
   ],
   "linked": [],
