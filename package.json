@@ -62,7 +62,8 @@
       [
         "npm",
         {
-          "monorepoChangelog": false
+          "subPackageChangelogs": true,
+          "monorepoChangelog": true
         }
       ],
       "released"
