@@ -1,7 +1,6 @@
 {
   "name": "joy-monorep-service",
   "version": "0.0.0",
-  "private": false,
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -18,7 +17,8 @@
     "release": "changeset publish",
     "changelog:gen": "ts-node scripts/changelog-generate.ts",
     "changelog:write": "ts-node scripts/changelog-write.ts",
-    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push"
+    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
+    "shipit": "auto shipit"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.4",
@@ -39,6 +39,7 @@
     "@storybook/manager-webpack5": "^6.5.6",
     "@storybook/react": "^6.5.6",
     "@storybook/testing-library": "^0.0.11",
+    "auto": "^10.37.1",
     "babel-loader": "^8.2.5",
     "eslint-config-custom": "latest",
     "prettier": "^2.6.2",
@@ -49,5 +50,39 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "repository": "metocherry/joy-monorep-service",
+  "author": "metocherry <metocherry@gmail.com>",
+  "auto": {
+    "plugins": [
+      "npm",
+      "released"
+    ],
+    "labels": [
+      {
+        "name": "semver/major",
+        "changelogTitle": "💥 Breaking Change",
+        "description": "Increment the major version when merged",
+        "releaseType": "major",
+        "color": "#C5000B",
+        "overwrite": true
+      },
+      {
+        "name": "semver/minor",
+        "changelogTitle": "🚀 Enhancement",
+        "description": "Increment the minor version when merged",
+        "releaseType": "minor",
+        "color": "#F1A60E",
+        "overwrite": true
+      },
+      {
+        "name": "semver/patch",
+        "changelogTitle": "🐛 Bug Fix",
+        "description": "Increment the patch version when merged",
+        "releaseType": "patch",
+        "color": "#870048",
+        "overwrite": true
+      }
+    ]
+  }
 }

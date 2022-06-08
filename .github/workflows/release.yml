@@ -1,68 +1,44 @@
-name: Main Workflow
+name: Release
 
 on:
   push:
-    paths:
-      - ".changeset/**"
-      - "packages/**"
     branches:
       - main
 
 jobs:
   release:
-    name: Release
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Get Yarn cache path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: Checkout branch
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
 
-      - name: Configure npm
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
         run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Build packages
-        run: yarn build
-
-      - name: Create release Pull Request or publish to NPM
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: yarn release
-          commit: "ci(changesets): version packages"
-          title: "ci(changesets): version packages"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update changelog
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          yarn changelog:write
-          yarn changelog:commit
+          yarn install
+          yarn build
+          yarn shipit
