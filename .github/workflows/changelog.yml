@@ -16,24 +16,24 @@ jobs:
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.9.1
         with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
+          access_token: ${{ secrets.JOY_GITHUB_TOKEN }}
 
       - name: Get Yarn cache path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@3
         with:
           ref: main
 
       - name: Enable node
-        uses: actions/setup-node@master
+        uses: actions/setup-node@3
         with:
-          node-version: 16.x
+          node-version: 16
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -46,11 +46,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Generate the new changelog
         run: yarn changelog:gen
-
-      - name: Generate Twitter Post
-        run: yarn twitter:gen
 
       - name: Commit changelog
         run: |
