@@ -15,11 +15,15 @@
     "build-storybook": "build-storybook",
     "changeset": "changeset",
     "prerelease": "yarn build && yarn test",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "changelog:gen": "ts-node scripts/changelog-generate.ts",
+    "changelog:write": "ts-node scripts/changelog-write.ts",
+    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.4",
     "@changesets/cli": "^2.22.0",
+    "@types/prettier": "^2.6.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -37,7 +41,8 @@
     "@storybook/testing-library": "^0.0.11",
     "babel-loader": "^8.2.5",
     "eslint-config-custom": "latest",
-    "prettier": "latest",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.1",
     "turbo": "^1.2.16"
   },
   "engines": {
