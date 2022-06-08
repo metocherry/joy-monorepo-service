@@ -1,5 +1,5 @@
-import { AutoRc } from 'auto';
-import { INpmConfig } from '@auto-it/npm';
+const { AutoRc } = requrie('auto');
+const { INpmConfig } = requrie('@auto-it/npm');
 
 const npmOptions = {
   subPackageChangelogs: true,
