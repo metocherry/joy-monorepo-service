@@ -51,6 +51,7 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
+          npm whoami
         env:
           NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
 
