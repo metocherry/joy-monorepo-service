@@ -1,22 +1,25 @@
-name: Release
+name: Main Workflow
 
 on:
   push:
-    # paths:
-    #   - "packages/ui/**"
     branches:
       - main
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
+      - name: Get Yarn cache path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Checkout branch
         uses: actions/checkout@v3
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+        with:
+          node-version: 16
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -36,11 +39,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Create Release
+      - name: Install dependencies
+        run: yarn install
         env:
-          GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
-        run: |
-          yarn install
-          yarn build
-          yarn shipit
+          CI: true
+
+      - name: Build packages
+        run: yarn build
+
+      # - name: Create release Pull Request or publish to NPM
+      #   id: changesets
+      #   uses: changesets/action@v1
+      #   with:
+      #     publish: yarn release
+      #     commit: "ci(changesets): version packages"
+      #     title: "ci(changesets): version packages"
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Update changelog
+      #   if: steps.changesets.outputs.published == 'true'
+      #   run: |
+      #     yarn changelog:write
+      #     yarn changelog:commit
