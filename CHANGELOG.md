@@ -1,3 +1,16 @@
+# 0.1.4 (Thu Jun 09 2022)
+
+#### ⚠️ Pushed to `main`
+
+- config: add noPrefix ([@metocherry](https://github.com/metocherry))
+- config: add .env gitignore ([@metocherry](https://github.com/metocherry))
+
+#### Authors: 1
+
+- Jinseok Choi ([@metocherry](https://github.com/metocherry))
+
+---
+
 # v0.1.3 (Thu Jun 09 2022)
 
 #### ⚠️ Pushed to `main`
