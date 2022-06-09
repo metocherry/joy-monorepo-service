@@ -1,27 +1,26 @@
-name: Main Workflow
+name: Update Changelog RC
 
 on:
   push:
     paths:
       - ".changeset/**"
-      - "packages/**"
     branches:
       - main
 
-
 jobs:
-  release:
-    name: Release
+  daily:
+    if: ${{ 'chakra-ui/chakra-ui' == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      - name: Get Yarn cache path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ secrets.JOY_GITHUB_TOKEN }}
 
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -46,22 +45,23 @@ jobs:
         env:
           CI: true
 
-      - name: Build packages
-        run: yarn build
-
-      - name: Create release Pull Request or publish to NPM
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: yarn release
-          commit: "ci(changesets): version packages"
-          title: "ci(changesets): version packages"
-        env:
-          NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
-
-      - name: Update changelog
-        if: steps.changesets.outputs.published == 'true'
+      - name: Setup Git
         run: |
-          yarn changelog:write
-          yarn changelog:commit
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate the new changelog
+        run: yarn changelog:gen
+
+      - name: Commit changelog
+        run: |
+          git add .
+          git diff --staged --quiet || git commit -m "docs(changelog): $GITHUB_SHA"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          delete-branch: true
+          title: "docs: update .changelogrc"
+          branch: docs/changelog-updates
+
