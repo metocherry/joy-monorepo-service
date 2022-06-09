@@ -1,10 +1,9 @@
 {
   "name": "joy-monorep-service",
-  "version": "0.0.4",
+  "version": "0.1.2",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "packages/**/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -45,7 +44,6 @@
     "auto": "^10.37.1",
     "babel-loader": "^8.2.5",
     "eslint-config-custom": "latest",
-    "lerna": "^5.1.1",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.1",
     "turbo": "^1.2.16"

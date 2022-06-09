@@ -1,11 +1,14 @@
 {
   "name": "tsconfig",
-  "version": "0.0.4",
+  "version": "0.1.2",
   "private": true,
   "main": "index.js",
   "files": [
     "base.json",
     "nextjs.json",
     "react-library.json"
-  ]
+  ],
+  "scripts": {
+    "version": "yarn version"
+  }
 }
