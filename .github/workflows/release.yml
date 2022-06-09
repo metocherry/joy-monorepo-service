@@ -62,4 +62,4 @@ jobs:
 
       - name: Publish
         run: |
-          yarn lerna publish from-git --yes
+          yarn lerna publish ${{ steps.previous_tag.outputs.tag }} --tag-version-prefix='' --yes
