@@ -54,5 +54,8 @@
   },
   "packageManager": "yarn@3.2.1",
   "repository": "metocherry/joy-monorep-service",
-  "author": "metocherry <metocherry@gmail.com>"
+  "author": "metocherry <metocherry@gmail.com>",
+  "resolutions": {
+    "lmdb": "2.5.2"
+  }
 }
