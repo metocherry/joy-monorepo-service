@@ -1,4 +1,4 @@
-# @metocherry/joy-ui
+# @metocherry/joy-utils
 
 ## 0.0.4
 
@@ -6,9 +6,3 @@
 
 - 93eb23f: update button ui and add divide util
 - 32261e4: config: create changelog
-
-## 0.0.3
-
-### Patch Changes
-
-- 3f02e31: feat: update button size
