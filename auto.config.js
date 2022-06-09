@@ -1,6 +1,5 @@
 const npmOptions = {
-  subPackageChangelogs: true,
-  monorepoChangelog: true
+  exact: true
 };
 
 module.exports = function rc() {
