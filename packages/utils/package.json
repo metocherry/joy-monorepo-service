@@ -35,8 +35,7 @@
   "scripts": {
     "lint": "eslint *.ts*",
     "prepublishOnly": "yarn build",
-    "build": "tsc --noEmit && parcel build --no-source-maps",
-    "version": "yarn version"
+    "build": "tsc --noEmit && parcel build --no-source-maps"
   },
   "devDependencies": {
     "@parcel/packager-ts": "^2.6.0",

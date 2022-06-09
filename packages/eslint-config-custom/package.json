@@ -1,12 +1,9 @@
 {
   "name": "eslint-config-custom",
-  "version": "0.1.3",
+  "version": "0.0.22",
   "private": true,
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "version": "yarn version"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",

@@ -37,8 +37,7 @@
     "prepublishOnly": "yarn build",
     "build": "tsc --noEmit && parcel build --no-source-maps",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "version": "yarn version"
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
