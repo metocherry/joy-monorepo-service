@@ -51,7 +51,6 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
-          npm whoami
         env:
           NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
 
@@ -61,4 +60,4 @@ jobs:
 
       - name: Publish
         run: |
-          yarn lerna publish ${{ steps.previous_tag.outputs.tag }} --yes --tag-version-prefix='' --no-git-tag-version
+          yarn changeset publish
