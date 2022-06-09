@@ -1,5 +1,11 @@
 # @metocherry/joy-ui
 
+## 0.1.0
+
+### Minor Changes
+
+- a0d36ac: feat: add button size option
+
 ## 0.0.4
 
 ### Patch Changes
