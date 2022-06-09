@@ -1,3 +1,15 @@
+# 0.1.2 (Thu Jun 09 2022)
+
+#### ⚠️ Pushed to `main`
+
+- test ([@metocherry](https://github.com/metocherry))
+
+#### Authors: 1
+
+- Jinseok Choi ([@metocherry](https://github.com/metocherry))
+
+---
+
 # 0.1.1 (Wed Jun 08 2022)
 
 #### 🐛 Bug Fix
