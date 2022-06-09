@@ -58,4 +58,5 @@ jobs:
 
       - name: Publish
         run: |
-          yarn lerna publish from-git --tag-version-prefix='' --force-git-tag --yes
+          yarn lerna publish from-git --force-git-tag --tag-version-prefix='' --yes
+
