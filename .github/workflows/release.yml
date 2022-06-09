@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.JOY_GITHUB_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -36,7 +36,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -58,4 +58,4 @@ jobs:
 
       - name: Publish
         run: |
-          yarn lerna publish ${{ steps.previous_tag.outputs.tag }} --tag-version-prefix='' --no-push --yes
+          yarn lerna publish from-git --tag-version-prefix='' --no-push --yes
