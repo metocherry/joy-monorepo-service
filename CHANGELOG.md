@@ -1,5 +1,17 @@
 # 0.1.5 (Thu Jun 09 2022)
 
+#### ⚠️ Pushed to `main`
+
+- feat: change button size (metocherry@gmail.com)
+
+#### Authors: 1
+
+- jinseok (metocherry@gmail.com)
+
+---
+
+# 0.1.5 (Thu Jun 09 2022)
+
 
 
 ---
