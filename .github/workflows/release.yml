@@ -41,11 +41,13 @@ jobs:
       - name: Build packages
         run: yarn build
 
+      - name: Update version
+        run: yarn changeset version
+
       - name: Create release Pull Request or publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
-          version: yarn changeset version
           publish: yarn release
           commit: "ci(changesets): version packages"
           title: "ci(changesets): version packages"
