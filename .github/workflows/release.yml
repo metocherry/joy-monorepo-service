@@ -1,12 +1,9 @@
 name: Main Workflow
 
 on:
-  push:
-    paths:
-      - ".changeset/**"
-      - "packages/**"
-    branches:
-      - main
+  release:
+    types: [ published ]
+    branches: [ main ]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -66,11 +63,12 @@ jobs:
         with:
           version: ${{ steps.previous_tag.outputs.tag }}
           publish: yarn release
-          commit: "ci(changesets): version packages"
-          title: "ci(changesets): version packages"
+          commit: "ci(changesets): $RELEASE_TAG version packages"
+          title: "ci(changesets): $RELEASE_TAG version packages"
         env:
           NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ steps.previous_tag.outputs.tag }}
 
       - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
