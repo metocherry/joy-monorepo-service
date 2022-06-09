@@ -63,12 +63,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
 
-      - name: Update changelog
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          yarn changelog:write
-          yarn changelog:commit
-
       - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
