@@ -1,6 +1,6 @@
 {
   "name": "joy-monorep-service",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "workspaces": [
     "packages/**/*"
@@ -15,9 +15,6 @@
     "changeset": "changeset",
     "prerelease": "yarn build && yarn test",
     "release": "changeset publish",
-    "changelog:gen": "ts-node scripts/changelog-generate.ts",
-    "changelog:write": "ts-node scripts/changelog-write.ts",
-    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "lerna": "lerna"
   },
   "dependencies": {
