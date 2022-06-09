@@ -1,0 +1,58 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   'tag-version-prefix': '',
+0 silly argv   tagVersionPrefix: '',
+0 silly argv   push: false,
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   lernaVersion: '5.1.1',
+0 silly argv   '$0': 'node_modules/lerna/cli.js',
+0 silly argv   bump: '0.0.8'
+0 silly argv }
+1 notice cli v5.1.1
+2 verbose rootPath /Users/jinseok/workspace/@joy/joy-monorep-service
+3 info current version 0.0.8
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly getCurrentBranch
+7 verbose currentBranch main
+8 silly hasTags
+9 verbose hasTags true
+10 silly git-describe.sync "6c23158" => {"refCount":"125","sha":"6c23158","isDirty":false}
+11 info Assuming all packages changed
+12 verbose updated eslint-config-custom
+13 verbose updated tsconfig
+14 verbose updated @metocherry/joy-ui
+15 verbose updated @metocherry/joy-utils
+16 verbose git-describe undefined => "6c23158"
+17 silly git-describe parsed => {"refCount":"125","sha":"6c23158","isDirty":false}
+18 info auto-confirmed
+19 info execute Skipping git push
+20 info execute Skipping releases
+21 silly lifecycle No script for "preversion" in "joy-monorep-service", continuing
+22 silly lifecycle No script for "preversion" in "eslint-config-custom", continuing
+23 silly lifecycle No script for "preversion" in "tsconfig", continuing
+24 silly lifecycle No script for "version" in "tsconfig", continuing
+25 silly lifecycle No script for "version" in "eslint-config-custom", continuing
+26 silly lifecycle No script for "preversion" in "@metocherry/joy-ui", continuing
+27 silly lifecycle No script for "preversion" in "@metocherry/joy-utils", continuing
+28 silly lifecycle No script for "version" in "@metocherry/joy-ui", continuing
+29 silly lifecycle No script for "version" in "@metocherry/joy-utils", continuing
+30 silly lifecycle No script for "version" in "joy-monorep-service", continuing
+31 silly gitAdd [
+31 silly gitAdd   'packages/tsconfig/package.json',
+31 silly gitAdd   'packages/eslint-config-custom/package.json',
+31 silly gitAdd   'packages/ui/package.json',
+31 silly gitAdd   'packages/utils/package.json',
+31 silly gitAdd   'lerna.json'
+31 silly gitAdd ]
+32 silly gitCommit 0.0.8
+33 verbose git [ 'commit', '-m', '0.0.8' ]
+34 error Error: Command failed with exit code 1: git commit -m 0.0.8
+34 error On branch main
+34 error Your branch is ahead of 'origin/main' by 1 commit.
+34 error   (use "git push" to publish your local commits)
+34 error
+34 error nothing to commit, working tree clean
+34 error     at makeError (/Users/jinseok/workspace/@joy/joy-monorep-service/node_modules/execa/lib/error.js:60:11)
+34 error     at handlePromise (/Users/jinseok/workspace/@joy/joy-monorep-service/node_modules/execa/index.js:118:26)
