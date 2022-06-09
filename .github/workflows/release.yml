@@ -1,12 +1,10 @@
 name: Main Workflow
 
 on:
+  push:
     paths:
       - ".changeset/**"
       - "packages/**"
-    branches:
-      - main
-  push:
     branches:
       - main
 
