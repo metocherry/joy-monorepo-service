@@ -2,8 +2,6 @@ name: Main Workflow
 
 on:
   push:
-    paths:
-      - ".changeset/**"
     branches:
       - main
 
@@ -12,10 +10,6 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Get Yarn cache path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
@@ -32,7 +26,7 @@ jobs:
 
       - name: Load Yarn cache
         uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
