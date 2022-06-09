@@ -15,7 +15,9 @@
     "changeset": "changeset",
     "prerelease": "yarn build && yarn test",
     "release": "changeset publish",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "bump": "yarn version",
+    "bump:foreach": "yarn workspaces foreach bump"
   },
   "dependencies": {
     "@auto-it/npm": "^10.37.1",

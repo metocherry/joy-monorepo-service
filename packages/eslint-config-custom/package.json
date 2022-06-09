@@ -4,6 +4,9 @@
   "private": true,
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "bump": "yarn version"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
