@@ -44,7 +44,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Publish
+      - name: Intall modules
         run: |
           yarn install
+
+      - name: Publish
+        run: |
           yarn lerna publish from-git --tag-version-prefix='' --yes --no-git-tag-version
