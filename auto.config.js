@@ -4,7 +4,7 @@ const npmOptions = {
 
 module.exports = function rc() {
   return {
-    noVersionPrefix: true,
+    // noVersionPrefix: true,
     noDefaultLabels: true,
     plugins: [
       'released',
