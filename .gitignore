@@ -46,3 +46,6 @@ yarn-error.log*
 .cache
 .parcel-cache
 parcel-bundle-reports
+
+# environments
+.env
