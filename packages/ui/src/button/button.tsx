@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 export interface ButtoonPorps {
   children: ReactNode;
-  size: 30 | 40 | 45 | 50 | 60;
+  size: 30 | 40 | 45 | 50;
   color?: string,
 }
 
