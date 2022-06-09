@@ -18,8 +18,7 @@
     "release": "changeset publish",
     "changelog:gen": "ts-node scripts/changelog-generate.ts",
     "changelog:write": "ts-node scripts/changelog-write.ts",
-    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
-    "shipit": "auto shipit"
+    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push"
   },
   "dependencies": {
     "@auto-it/npm": "^10.37.1",

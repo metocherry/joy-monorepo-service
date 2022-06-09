@@ -1,6 +1,11 @@
 name: Main Workflow
 
 on:
+    paths:
+      - ".changeset/**"
+      - "packages/**"
+    branches:
+      - main
   push:
     branches:
       - main
@@ -41,9 +46,6 @@ jobs:
       - name: Build packages
         run: yarn build
 
-      - name: Update version
-        run: yarn changeset version
-
       - name: Create release Pull Request or publish to NPM
         id: changesets
         uses: changesets/action@v1
@@ -58,5 +60,22 @@ jobs:
       - name: Update changelog
         if: steps.changesets.outputs.published == 'true'
         run: |
+          yarn changelog:write
+          yarn changelog:commit
+
+      - name: Release to @dev tag
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          git checkout main
+          yarn changeset version --snapshot dev
+          yarn changeset publish --tag dev
+        env:
+          NPM_TOKEN: ${{ secrets.JOY_NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JOY_GITHUB_TOKEN }}
+
+      - name: Update changelog
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          yarn changelog:gen
           yarn changelog:write
           yarn changelog:commit
