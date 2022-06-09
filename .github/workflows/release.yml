@@ -58,6 +58,7 @@ jobs:
 
       - name: Version
         run: |
+          git checkout $GIT_BRANCH
           yarn lerna version ${{ steps.previous_tag.outputs.tag }} --tag-version-prefix='' --no-push --yes
 
       - name: Publish
